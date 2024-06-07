@@ -23,8 +23,12 @@ ol {
 .hide {
   display: none !important;
 }
+input {
+  font-family: inherit;
+}
 
-.body,.body-dark {
+.body,
+.body-dark {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
