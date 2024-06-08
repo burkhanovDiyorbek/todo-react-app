@@ -119,24 +119,24 @@ function App() {
                     key={item.id}
                   >
                     <img
-                      src="./img/icons/circle.svg"
+                      src="../img/icons/circle.svg"
                       alt="circle"
                       className="circle"
                     />
                     <img
-                      src="./img/icons/circle-dark.svg"
+                      src="../img/icons/circle-dark.svg"
                       alt="circle dark"
                       className="circle-dark"
                       onClick={() => changeIsComp(item.id)}
                     />
                     <img
-                      src="./img/icons/circle-hover.svg"
+                      src="../img/icons/circle-hover.svg"
                       alt="circle hover"
                       className="circle-hover"
                       onClick={() => changeIsComp(item.id)}
                     />
                     <img
-                      src="./img/icons/checked.svg"
+                      src="../img/icons/checked.svg"
                       alt="checked"
                       className="checked"
                       onClick={() => changeIsComp(item.id)}
@@ -144,7 +144,7 @@ function App() {
                     <p onClick={() => setShowModal(true)}>{item.title}</p>
                     <img
                       onClick={() => removeData(item.id)}
-                      src="./img/icons/remove.svg"
+                      src="../img/icons/remove.svg"
                       alt="remove"
                       className="remove"
                     />
