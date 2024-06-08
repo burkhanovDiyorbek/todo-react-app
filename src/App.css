@@ -126,8 +126,8 @@ input {
 .container .container-todos {
   border-radius: 5px;
   background: var(--bg-light-1);
-  -webkit-box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  -webkit-box-shadow: 0px 35px 50px 15px rgba(194, 195, 214, 0.5);
+  box-shadow: 0px 35px 50px 15px rgba(194, 195, 214, 0.5);
   width: 100%;
 }
 .container .container-todos li {
@@ -256,7 +256,7 @@ input {
   margin-top: 50px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   :root {
     --fs-1: 35px;
     --fs-2: 12px;
@@ -265,13 +265,24 @@ input {
   .body {
     max-height: 200px;
   }
+  .todo-filter {
+    display: none !important;
+  }
   .container {
     padding: 48px 0 0;
+    max-width: 327px;
   }
   .container .container-todo-input {
     padding: 14px 20px;
     margin-bottom: 16px;
     gap: 12px;
+  }
+  .container .container-todos li .circle-hover {
+    display: none;
+  }
+  .container .container-todos li .remove {
+    display: block !important;
+    opacity: 1;
   }
   .container .container-todos {
     margin-bottom: 16px;
@@ -300,7 +311,7 @@ input {
   .container .todo-filter--mob {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: flex !important;
     font-size: 12px;
     font-weight: 700;
     -webkit-box-align: center;
@@ -344,6 +355,9 @@ input {
 .body-dark .container .container-todo-input .circle {
   display: none;
 }
+.body-dark .todo-filter--mob {
+  background: #25273d !important;
+}
 .body-dark .container .container-todos {
   background: #25273d;
   -webkit-box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
@@ -379,4 +393,66 @@ input {
 }
 .body-dark .container .container-footer {
   color: #5b5e7e;
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #00000044;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  .modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--bg-light-1);
+    padding: 50px 100px;
+    border-radius: 20px;
+    div {
+      display: flex;
+      justify-content: space-between;
+      button {
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .disabled {
+        cursor: not-allowed !important;
+      }
+    }
+    button {
+      background: transparent;
+    }
+  }
+  input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid aquamarine;
+    background: transparent;
+    font-family: inherit;
+    &:focus {
+      outline: 2px solid aqua;
+    }
+  }
+}
+
+.body-dark .modal {
+  background: #25273d !important;
+  input,
+  button {
+    color: #fff;
+  }
+  .disabled {
+    opacity: 0.5;
+  }
+}
+
+.li {
+  cursor: grab !important;;
+  transition: all 0.1s !important;
 }
