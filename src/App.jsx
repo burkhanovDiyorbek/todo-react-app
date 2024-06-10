@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { v4 as uuid } from "uuid";
 import { Reorder } from "framer-motion";
-import { Modal } from "./Modal";
 function App() {
   const [todosArr, setToDo] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
@@ -14,19 +13,11 @@ function App() {
   useEffect(() => {
     localStorage.setItem("isDark", JSON.stringify(isDark));
   }, [isDark]);
-  const [showModal, setShowModal] = useState(false);
 
   document.body.classList = isDark ? "body-dark" : "body";
 
-  if (showModal) {
-    document.body.style = "overflow:hidden;";
-    window.scrollTo(0, 0);
-  } else {
-    document.body.style = "overflow:visible;";
-  }
-
   const sendData = (obj) => {
-    setToDo((prev) => [...prev, obj]);
+    setToDo((prev) => [obj, ...prev]);
   };
 
   const removeData = (id) => {
@@ -141,21 +132,13 @@ function App() {
                       className="checked"
                       onClick={() => changeIsComp(item.id)}
                     />
-                    <p onClick={() => setShowModal(true)}>{item.title}</p>
+                    <p> {item.title}</p>
                     <img
                       onClick={() => removeData(item.id)}
                       src="../img/icons/remove.svg"
                       alt="remove"
                       className="remove"
                     />
-                    {showModal && (
-                      <Modal
-                        id={item.id}
-                        value={item.title}
-                        setShowModal={setShowModal}
-                        setToDos={setToDo}
-                      />
-                    )}
                   </Reorder.Item>
                 );
               })

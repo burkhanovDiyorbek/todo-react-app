@@ -145,7 +145,6 @@ input {
   font-size: var(--fs-2);
   font-weight: 400;
   letter-spacing: -0.25px;
-  cursor: pointer;
   position: relative;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -453,6 +452,8 @@ input {
 }
 
 .li {
-  cursor: grab !important;;
   transition: all 0.1s !important;
+  img {
+    cursor: pointer !important;
+  }
 }
